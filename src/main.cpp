@@ -2,13 +2,13 @@
 #include "LedStripController.h"
 #include "DisplayController.h"
 #include "Co2Sensor.h"
-
+#include "PlantHumiditySensor.h"
 
 int delayval = 500;
 
 DisplayController *display;
-
 Co2Sensor *co2Sensor;
+PlantHumiditySensor *plantHumSensor;
 
 void setup()
 {
@@ -21,6 +21,8 @@ void setup()
   co2Sensor = new Co2Sensor();
   co2Sensor->setup();
   co2Sensor->calibrate();
+
+  plantHumSensor = new PlantHumiditySensor();
 }
 
 void loop()
@@ -33,7 +35,7 @@ void loop()
 
   float greenHouseTmp = 21.7;
   boolean greenHouseLightOn = false;
-  float plantHumidity = 37.8;
+  int plantHumidity = plantHumSensor->measure();
 
   display->setPrinterTmp(printerTmp);
   display->setPPM(ppm);

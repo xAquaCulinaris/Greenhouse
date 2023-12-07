@@ -15,7 +15,7 @@ public:
 
     void setGreenhouseTmp(float greenhouseTmp);
     void setGreenhouseLights(boolean greenhouseLights);
-    void setPlantHumidity(float plantHumidity);
+    void setPlantHumidity(int plantHumidity);
 
 private:
     float printerTmp;
@@ -24,7 +24,7 @@ private:
 
     float greenhouseTmp;
     boolean greenhouseLights;
-    float plantHumidity;
+    int plantHumidity;
 
     Adafruit_SSD1306 *display;
     String booleanToString(boolean toConvert);

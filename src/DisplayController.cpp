@@ -41,10 +41,10 @@ void DisplayController::update()
     display->print("Greenhouse:");
 
     display->setCursor(75, 35);
-    display->print("(" + String(greenhouseTmp) + ")");
+    display->print("(" + String(greenhouseTmp) + "c)");
 
     display->setCursor(10, 45);
-    display->print("PlantHum: " + String(plantHumidity) + "%");
+    display->print("PlantHum: " + String(plantHumidity));
 
     display->setCursor(10, 55);
     display->print("Light: " + booleanToString(greenhouseLights));
@@ -77,7 +77,7 @@ void DisplayController::setGreenhouseLights(boolean lightsOn)
     this->greenhouseLights = lightsOn;
 }
 
-void DisplayController::setPlantHumidity(float humidity)
+void DisplayController::setPlantHumidity(int humidity)
 {
     this->plantHumidity = humidity;
 }
